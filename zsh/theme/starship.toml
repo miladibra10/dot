@@ -1,0 +1,45 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = false
+command_timeout = 60000
+scan_timeout = 40000
+
+format = """
+$kubernetes
+($git_status$git_branch$git_state
+)\
+$directory
+$cmd_duration$status$character
+"""
+
+# Replace the '❯' symbol in the prompt with '➜'
+[character] # The name of the module we are configuring is 'character'
+success_symbol = '[➜](bold green)'
+
+[directory]
+truncation_length = 10
+format = ' [pwd:]($style) [$path]($style)[$read_only]($read_only_style) '
+repo_root_style = "bold blue"
+repo_root_format = ' [pwd:]($style) [$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) '
+
+[kubernetes]
+disabled = false
+format = ' [☸️: $context (\($namespace\))]($style) '
+contexts = [
+    { context_pattern = ".*-prod.*", style = "red" },
+    { context_pattern = ".*-testing.*", style = "yellow" },
+    { context_pattern = ".*-dev.*", style = "green" },
+]
+
+[git_branch]
+format = '[git: $symbol$branch(:$remote_branch)]($style) '
+
+[git_status]
+format = ' ([\[$all_status$ahead_behind\]]($style) )'
+
+[status]
+disabled = false
+format = ' exit code: [$symbol $status]($style) '
+
+[cmd_duration]
+format = ' took [$duration]($style) '

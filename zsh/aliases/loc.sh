@@ -1,0 +1,1 @@
+alias loc="find . -path ./data -prune -o -path ./vendor -prune -o -path ./node_modules -prune -o -path ./.git -prune -o -path ./coverage -prune -o -path ./build -prune -o -path ./.idea -prune -o -type f -print | grep -v package-lock.json | grep -v mock | grep -v cover.out | xargs wc -l"

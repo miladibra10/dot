@@ -1,0 +1,50 @@
+# List of tools to be installed via Homebrew
+# Add tools here
+brew_tools=(
+    "ansible"
+    "awscli"
+    "cfssl"
+    "coreutils"
+    "curl"
+    "dive"
+    "fzf"
+    "gawk"
+    "gnupg"
+    "go"
+    "graphviz"
+    "grep"
+    "helm"
+    "htop"
+    "jq"
+    "k9s"
+    "kind"
+    "kubectx"
+    "kubernetes-cli"
+    "nmap"
+    "node"
+    "ripgrep"
+    "sqlite"
+    "telnet"
+    "tmux"
+    "wget"
+    "yq"
+    "starship"
+    "crane"
+)
+
+# List of casks to be installed via Homebrew
+# Add casks here
+brew_casks=(
+    "codex"
+    "docker"
+    "docker-desktop"
+    "ghostty"
+    "iterm2"
+    "ngrok"
+    "obs"
+    "rar"
+    "skype"
+    "stats"
+    "visual-studio-code"
+    "vlc"
+)
