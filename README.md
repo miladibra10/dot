@@ -8,6 +8,8 @@ A repo to contain my personal workspace configurations
 - `zsh/env/`: Directory for categorized environment variables.
 - `zsh/env.sh`: Loader script that applies all environment variables from the `env/` directory.
 - `zsh/completions.sh`: Automatically setup command autocompletions for CLI tools.
+- `zsh/configurations/`: Directory for scripts that should be executed once unless they have changed.
+- `zsh/configurations.sh`: Loader script that executes scripts in the `configurations/` directory once, using a per-file hashing mechanism.
 - `zsh/installers/`: Directory for tool lists to be installed via `brew` or `asdf`.
 - `zsh/installers.sh`: Loader script that installs missing tools via `brew` or `asdf`. It uses a hashing mechanism to skip installation if configuration files haven't changed, improving shell startup performance.
 - `zsh/theme/`: Directory for theme-specific configurations (e.g., Starship).

@@ -12,6 +12,7 @@ The repository follows a modular, directory-based approach for shell configurati
 - **`zsh/env.sh`**: The environment variables loader. It sources all `.sh` files inside the `zsh/env/` directory.
 - **`zsh/aliases.sh`**: The aliases loader. It sources all `.sh` files inside the `zsh/aliases/` directory.
 - **`zsh/completions.sh`**: A standalone script that initializes zsh's `compinit` and loops through a list of tools to source their completions using the standard `tool completion zsh` pattern.
+- **`zsh/configurations.sh`**: The one-time configuration loader. It executes scripts in `zsh/configurations/` once unless the script file has changed, using a per-file hashing mechanism.
 - **`zsh/installers.sh`**: The tool installer loader. It sources all `.sh` files inside `zsh/installers/` and installs missing tools via `brew` or `asdf`. It uses a SHA-1 hashing mechanism to skip checks if configuration hasn't changed.
 - **`zsh/theme.sh`**: The theme loader. It sources all `.sh` files inside the `zsh/theme/` directory (e.g., Starship configuration).
 - **`zsh/terminal.sh`**: The terminal configuration sync. It ensures the Ghostty configuration is synced between the repository and the local application support directory.
@@ -44,18 +45,24 @@ source <PATH_TO_DOTFILES>/zsh/activate.sh
 - Add the name of the CLI tool to the array.
 - Note: This assumes the tool supports the `tool completion zsh` command.
 
-#### 4. Installers
+#### 4. One-time Configurations
+- Navigate to `zsh/configurations/`.
+- Create a new file with a `.sh` extension (e.g., `zsh/configurations/setup_macos.sh`).
+- Add scripts that should only be executed once (e.g., system defaults).
+- It will only be re-executed if the file content changes.
+
+#### 5. Installers
 - Navigate to `zsh/installers/`.
 - To add Homebrew tools or casks, edit `zsh/installers/brew.sh` and add them to `brew_tools` or `brew_casks` arrays.
 - To add ASDF tools, edit `zsh/installers/asdf.sh` and add them to the `asdf_tools` array using the `tool:version1,version2` format.
 
-#### 5. Themes
+#### 6. Themes
 - Navigate to `zsh/theme/`.
 - Create a new file with a `.sh` extension (e.g., `zsh/theme/my_theme.sh`).
 - Define your prompt or theme-specific configurations.
 - It will be automatically loaded.
 
-#### 6. Terminal Configuration
+#### 7. Terminal Configuration
 - Edit `zsh/terminal/config.ghostty` to update your Ghostty terminal settings.
 - The configuration is automatically synced with the Ghostty application support directory on shell startup.
 
