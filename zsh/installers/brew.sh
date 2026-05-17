@@ -30,6 +30,7 @@ brew_tools=(
     "yq"
     "starship"
     "crane"
+    "rtk"
 )
 
 # List of casks to be installed via Homebrew
