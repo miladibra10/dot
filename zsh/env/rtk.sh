@@ -1,3 +1,3 @@
-rtk init -g
-rtk init -g --gemini
-rtk init -g --codex
+rtk init -g > /dev/null
+rtk init -g --gemini > /dev/null
+rtk init -g --codex > /dev/null
